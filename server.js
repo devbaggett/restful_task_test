@@ -50,7 +50,7 @@ app.get('/tasks', function(req, res){
 			res.json({message: "ERROR", error: err});
 		}
 		else{
-			res.json({tasks})
+			res.json({message: "Success", tasks: tasks})
 		}
 	})
 })

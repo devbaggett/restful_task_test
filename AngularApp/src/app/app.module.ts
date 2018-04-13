@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { HttpService } from '/http.service';
+import { HttpService } from './http.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

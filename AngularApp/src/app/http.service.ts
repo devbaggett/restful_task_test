@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 
-import { HttpService } from '@angular/common/httpS';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class HttpService {
-	constructor(private _http: httpClient) {
+	constructor(private _http: HttpClient) {
 		this.getTasks();
 	}
 	getTasks(){
