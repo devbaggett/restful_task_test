@@ -16,3 +16,15 @@ completed: (boolean, default to: false)
 created_at: (date, default to current date)  
 updated_at: (date, default to current date)  
 Once your API is complete and your routing rules are in place, and follow the 'restful routing' standards, use the 'postman' browser extension to test your routing rules. 'Postman' is a simple (and quite popular) browser extension that allows you to prepare your own HTTP requests, serving as an ideal tool for testing your server's API.  
+
+
+Restful Tasks Continued
+
+Objectives:  
+
+Have an Angular app display the data it received from an API in the html  
+Continue building off your Restful Tasks assignment, which should currently have your service making all the get requests to your server. Now, have the root component invoke the methods in the service that make the requests to the server. Also, have the root component subscribe to the observables that are returned.  
+
+Next, have the root component store the data it receives in its own attributes.  
+
+Finally, you are set up to use the data you have in the root component to manipulate the DOM. Use structural directives to display the data in the HTML.  
