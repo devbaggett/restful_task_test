@@ -1,14 +1,31 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
     <h1>{{ title }}</h1>
-    <h2>All the tasks:</h2>
-    <ul *ngIf = "tasks" style="list-style-position: inside">
-      <li *ngFor = "let task of tasks">
-        {{ task.title }} - {{ task.description }}
-      </li>
-    </ul>
-    <h2 style="margin-top: 50px;">The third task:</h2>
-    <li *ngIf = "tasks[2]">{{ tasks[2].title }} - {{ tasks[2].description }}</li>
+
+    <button (click) = "getTasksFromService()">Click to get all tasks</button>
+    
+	<!-- <ul *ngIf = "tasks" style="list-style-position: inside"> -->
+	<div>
+		<ol>
+      	<li *ngFor = "let task of tasks" style="list-style-position: inside">
+        	{{ task.title }} - {{ task.description }}
+      	</li>
+      </ol>
+    </div>
+  <!--   </ul> -->
+	<div>
+		<input #idtext type="text" name="get_one_task">
+
+		<button (click) = "getOneTask(idtext.value)">Click to get one task</button>
+		<li *ngIf = "task['title']">{{ task.title }} - {{ task.description }}</li>
+	</div>
+
+	<!-- <div *ngIf= "">
+		<li></li>
+	</div> -->
+	
+    <!-- <h2 style="margin-top: 50px;">The third task:</h2> -->
+    <!-- <li *ngIf = "tasks[2]">{{ tasks[2].title }} - {{ tasks[2].description }}</li> -->
 </div>
 
 
