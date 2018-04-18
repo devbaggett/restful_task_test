@@ -1,31 +1,53 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
+	
     <h1>{{ title }}</h1>
-
-    <button (click) = "getTasksFromService()">Click to get all tasks</button>
-    
-	<!-- <ul *ngIf = "tasks" style="list-style-position: inside"> -->
 	<div>
-		<ol>
-      	<li *ngFor = "let task of tasks" style="list-style-position: inside">
-        	{{ task.title }} - {{ task.description }}
-      	</li>
-      </ol>
-    </div>
-  <!--   </ul> -->
-	<div>
-		<input #idtext type="text" name="get_one_task">
-
-		<button (click) = "getOneTask(idtext.value)">Click to get one task</button>
-		<li *ngIf = "task['title']">{{ task.title }} - {{ task.description }}</li>
+		<form (submit)="addTaskFromService()">
+		    <!-- use the json pipe to see how newTask changes in real time -->
+		    <p> {{ newTask | json }} </p>
+		    Title: <input type="text" name="newTask.title" [(ngModel)]="newTask.title">
+		    Description: <input type="text" name="newTask.description" [(ngModel)]="newTask.description">
+		    <input type="submit" value="Create Task">
+		</form>
+		<button style="margin-top: 10px;" (click) = "getTasksFromService()">Click to get all tasks</button>
 	</div>
+	
+	
+
+	<div style="display: inline-block;">
+		<ol style="display: inline-block;">
+	      	<li *ngFor = "let task of tasks" style="list-style-position: inside; border: 1px solid gray; padding: 5px; margin-top: 5px; background-color: lightgray;">
+	        	<h4>{{ task['title'] }}</h4>
+	        	<h5>{{ task.description }}</h5>
+	        	<button (click)="getTaskById(task._id)">Edit</button>
+	        	<button (click)="deleteTaskFromService(task._id)">Delete</button>
+	      	</li>
+      	</ol>
+    </div>
+
+    <div *ngIf= "edit" style="position: fixed; display: inline-block; vertical-align: top; border: 1px solid gray; padding: 5px; margin-top: 21px; margin-left: 10px; background-color: lightgray;">
+    	<h3>Edit Task</h3>
+    	<form (submit)="editTaskFromService(task._id)">
+		    <!-- use the json pipe to see how newTask changes in real time -->
+		    <p> {{ editTask | json }} </p>
+		    Title: <input type="text" name="editTask.title" [(ngModel)]="editTask.title">
+		    Description: <input type="text" name="editTask.description" [(ngModel)]="editTask.description">
+		    <input type="submit" value="Edit Task">
+		</form>
+	</div>
+
+	<!-- <div style="display: inline-block">
+		<input #idtext type="text" name="get_one_task">
+		<button (click) = "getOneTask(idtext.value)">Click to get one task</button>
+		<p *ngIf = "task['title']" style="border: 1px solid gray; padding: 5px; margin-top: 5px; background-color: lightgray;">{{ task.title }} - {{ task.description }}</p>
+	</div> -->
 
 	<!-- <div *ngIf= "">
 		<li></li>
 	</div> -->
 	
-    <!-- <h2 style="margin-top: 50px;">The third task:</h2> -->
-    <!-- <li *ngIf = "tasks[2]">{{ tasks[2].title }} - {{ tasks[2].description }}</li> -->
+
 </div>
 
 
