@@ -26,6 +26,7 @@ var Task = mongoose.model('Task');
 
 mongoose.Promise = global.Promise;
 
+
 // ********************* ROUTES *********************
 
 // CREATE A TASK
@@ -77,7 +78,7 @@ app.put("/update/:id", function(req, res){
 	Task.update({_id: req.params.id}, updated_task, function(err){
 		if(err){
 			console.log("ERROR: ", err);
-			res.json({message: "ERROR", error: err});
+			res.json({message: "Error", error: err});
 		}
 		else{
 			res.json({message: "Success"})
